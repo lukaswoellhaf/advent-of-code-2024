@@ -15,3 +15,11 @@ func TestDay1Part1(t *testing.T) {
 	assert.Equal(t, nil, getTotalDistanceErr, "getTotalDistanceErr should be nil")
 	assert.Equal(t, 11, totalDistance, "totalDistance should be 11")
 }
+
+func TestDay1Part2(t *testing.T) {
+	day1Part2Input, readErr := tools.ReadFile("../inputs/day_1_part_1_example.txt")
+	assert.Equal(t, nil, readErr, "readErr should be nil")
+	totalSimilarityScore, getScoreErr := day1.CalculateTotalSimilarityScore(day1Part2Input)
+	assert.Equal(t, nil, getScoreErr, "getScoreErr should be nil")
+	assert.Equal(t, 31, totalSimilarityScore, "totalSimilarityScore should be 31")
+}

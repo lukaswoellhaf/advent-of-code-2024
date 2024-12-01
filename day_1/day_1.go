@@ -1,6 +1,7 @@
 package day1
 
 import (
+	"advent-of-code-2024/tools"
 	"math"
 	"sort"
 	"strconv"
@@ -57,4 +58,19 @@ func CalculateTotalLocationDistances(input string) (int, error) {
 	}
 
 	return totalLocationDinstance, err
+}
+
+func CalculateTotalSimilarityScore(input string) (int, error) {
+	locationIdList1, locationIdList2, err := getLocationIdListsOrdered(input)
+	if err != nil {
+		return 0, err
+	}
+
+	var totalSimilarityScore int
+
+	for _, locationId := range locationIdList1 {
+		totalSimilarityScore += locationId * tools.CountOccurrences(locationId, locationIdList2)
+	}
+
+	return totalSimilarityScore, nil
 }
