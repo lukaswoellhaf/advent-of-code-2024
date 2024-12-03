@@ -3,6 +3,7 @@ package main
 import (
 	day1 "advent-of-code-2024/day_1"
 	day2 "advent-of-code-2024/day_2"
+	day3 "advent-of-code-2024/day_3"
 	"advent-of-code-2024/tools"
 	"fmt"
 	"log"
@@ -43,4 +44,16 @@ func main() {
 	fmt.Println("--- Day 2: Red-Nosed Reports---")
 	fmt.Println("--- Part 1 ---")
 	fmt.Printf("Result: %d\n", safetyCount)
+
+	day3Part1Input, readErr := tools.ReadFile("./inputs/day_3_puzzle.txt")
+	if readErr != nil {
+		log.Fatal(readErr)
+	}
+	instructionResults, getInstructionResultsErr := day3.ExecuteInstructions(day3Part1Input)
+	if getInstructionResultsErr != nil {
+		log.Fatal(getInstructionResultsErr)
+	}
+	fmt.Println("--- Day 3: Mull It Over---")
+	fmt.Println("--- Part 1 ---")
+	fmt.Printf("Result: %d\n", instructionResults)
 }
